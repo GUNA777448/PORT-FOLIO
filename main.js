@@ -59,12 +59,12 @@ scene.add(neuralGrid);
 // --- Floating Geometric Shapes ---
 const floatingShapes = [];
 const shapeGeometries = [
-  new THREE.BoxGeometry(2.5, 2.5, 2.5),         // data cube / server block
-  new THREE.BoxGeometry(4, 0.12, 4),             // circuit board panel
-  new THREE.CylinderGeometry(1.2, 1.2, 3, 6),   // database cylinder
-  new THREE.RingGeometry(1.5, 2.2, 6),           // hex chip ring
-  new THREE.BoxGeometry(3.5, 0.08, 0.08),        // circuit trace
-  new THREE.OctahedronGeometry(1.8, 0),          // data node
+  new THREE.BoxGeometry(2.5, 2.5, 2.5), // data cube / server block
+  new THREE.BoxGeometry(4, 0.12, 4), // circuit board panel
+  new THREE.CylinderGeometry(1.2, 1.2, 3, 6), // database cylinder
+  new THREE.RingGeometry(1.5, 2.2, 6), // hex chip ring
+  new THREE.BoxGeometry(3.5, 0.08, 0.08), // circuit trace
+  new THREE.OctahedronGeometry(1.8, 0), // data node
 ];
 
 for (let i = 0; i < 18; i++) {
@@ -303,7 +303,8 @@ window.addEventListener("click", () => {
     });
     gsap.delayedCall(1, () => {
       dataCubeGroup.children.forEach((c) => {
-        if (c.material) gsap.to(c.material, { emissiveIntensity: 0.15, duration: 0.8 });
+        if (c.material)
+          gsap.to(c.material, { emissiveIntensity: 0.15, duration: 0.8 });
       });
     });
     document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" });
