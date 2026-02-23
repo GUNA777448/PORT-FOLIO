@@ -741,7 +741,9 @@ function showToast(message, type = "info", duration = 4000) {
   requestAnimationFrame(() => (progressBar.style.width = "0%"));
 
   // Close button
-  toast.querySelector(".toast-close").addEventListener("click", () => dismissToast(toast));
+  toast
+    .querySelector(".toast-close")
+    .addEventListener("click", () => dismissToast(toast));
 
   // Auto dismiss
   const timer = setTimeout(() => dismissToast(toast), duration);
@@ -751,7 +753,10 @@ function showToast(message, type = "info", duration = 4000) {
     progressBar.style.width = progressBar.getBoundingClientRect().width + "px";
   });
   toast.addEventListener("mouseleave", () => {
-    const remaining = (parseFloat(getComputedStyle(progressBar).width) / progressBar.parentElement.offsetWidth) * duration;
+    const remaining =
+      (parseFloat(getComputedStyle(progressBar).width) /
+        progressBar.parentElement.offsetWidth) *
+      duration;
     progressBar.style.transition = `width ${remaining}ms linear`;
     progressBar.style.width = "0%";
     toast._timer = setTimeout(() => dismissToast(toast), remaining);
@@ -810,7 +815,11 @@ if (contactForm) {
       );
 
       if (res.ok) {
-        showToast("Message sent successfully! I'll get back to you soon.", "success", 5000);
+        showToast(
+          "Message sent successfully! I'll get back to you soon.",
+          "success",
+          5000,
+        );
         submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
         submitBtn.classList.add("success");
         contactForm.reset();
@@ -824,7 +833,11 @@ if (contactForm) {
       }
     } catch (err) {
       console.error("Contact form error:", err);
-      showToast("Failed to send message. Please try again or email me directly.", "error", 6000);
+      showToast(
+        "Failed to send message. Please try again or email me directly.",
+        "error",
+        6000,
+      );
       submitBtn.innerHTML = '<i class="fas fa-times"></i> Failed';
       submitBtn.classList.add("error");
       setTimeout(() => {
