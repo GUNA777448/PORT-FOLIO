@@ -706,3 +706,132 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// ==========================================
+// 17. TOAST NOTIFICATION SERVICE
+// ==========================================
+function showToast(message, type = "info", duration = 4000) {
+  const container =
+    document.getElementById("toast-container") || createToastContainer();
+
+  const icons = {
+    success: "fa-circle-check",
+    error: "fa-circle-xmark",
+    info: "fa-circle-info",
+    warning: "fa-triangle-exclamation",
+  };
+
+  const toast = document.createElement("div");
+  toast.className = `toast toast-${type}`;
+  toast.innerHTML = `
+    <i class="fas ${icons[type] || icons.info}"></i>
+    <span class="toast-message">${message}</span>
+    <button class="toast-close" aria-label="Close"><i class="fas fa-xmark"></i></button>
+    <div class="toast-progress"><div class="toast-progress-bar"></div></div>
+  `;
+
+  container.appendChild(toast);
+
+  // Trigger entrance animation
+  requestAnimationFrame(() => toast.classList.add("toast-visible"));
+
+  // Progress bar animation
+  const progressBar = toast.querySelector(".toast-progress-bar");
+  progressBar.style.transition = `width ${duration}ms linear`;
+  requestAnimationFrame(() => (progressBar.style.width = "0%"));
+
+  // Close button
+  toast.querySelector(".toast-close").addEventListener("click", () => dismissToast(toast));
+
+  // Auto dismiss
+  const timer = setTimeout(() => dismissToast(toast), duration);
+  toast.addEventListener("mouseenter", () => {
+    clearTimeout(timer);
+    progressBar.style.transition = "none";
+    progressBar.style.width = progressBar.getBoundingClientRect().width + "px";
+  });
+  toast.addEventListener("mouseleave", () => {
+    const remaining = (parseFloat(getComputedStyle(progressBar).width) / progressBar.parentElement.offsetWidth) * duration;
+    progressBar.style.transition = `width ${remaining}ms linear`;
+    progressBar.style.width = "0%";
+    toast._timer = setTimeout(() => dismissToast(toast), remaining);
+  });
+}
+
+function dismissToast(toast) {
+  if (toast.classList.contains("toast-exit")) return;
+  toast.classList.add("toast-exit");
+  toast.addEventListener("animationend", () => toast.remove());
+}
+
+function createToastContainer() {
+  const c = document.createElement("div");
+  c.id = "toast-container";
+  document.body.appendChild(c);
+  return c;
+}
+
+// ==========================================
+// 18. CONTACT FORM SUBMISSION (Google Apps Script)
+// ==========================================
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+    const name = contactForm.querySelector("#name").value.trim();
+    const email = contactForm.querySelector("#email").value.trim();
+    const subject = contactForm.querySelector("#subject").value.trim();
+    const message = contactForm.querySelector("#message").value.trim();
+
+    // Client-side validation
+    if (!name || !email || !subject || !message) {
+      showToast("Please fill in all fields.", "warning");
+      submitBtn.innerHTML = originalHTML;
+      submitBtn.disabled = false;
+      return;
+    }
+
+    const payload = { name, email, subject, message };
+
+    try {
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycbzccRUjgj8BE4AaezvWlaerlTqv-MP_DF246NYdSqU0TLHl6sdg3XUp28KgLsASL9nx/exec",
+        {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload),
+        },
+      );
+
+      if (res.ok) {
+        showToast("Message sent successfully! I'll get back to you soon.", "success", 5000);
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+        submitBtn.classList.add("success");
+        contactForm.reset();
+        setTimeout(() => {
+          submitBtn.innerHTML = originalHTML;
+          submitBtn.classList.remove("success");
+          submitBtn.disabled = false;
+        }, 2500);
+      } else {
+        throw new Error("Response not OK");
+      }
+    } catch (err) {
+      console.error("Contact form error:", err);
+      showToast("Failed to send message. Please try again or email me directly.", "error", 6000);
+      submitBtn.innerHTML = '<i class="fas fa-times"></i> Failed';
+      submitBtn.classList.add("error");
+      setTimeout(() => {
+        submitBtn.innerHTML = originalHTML;
+        submitBtn.classList.remove("error");
+        submitBtn.disabled = false;
+      }, 2500);
+    }
+  });
+}

@@ -6,47 +6,54 @@ export const portfolioData = {
     contact: {
       phone: "+91-6300614592",
       email: "gurunadarao.reddy@gmail.com",
-      links: ["GitHub", "LinkedIn", "LeetCode"]
-    }
+      links: ["GitHub", "LinkedIn", "LeetCode"],
+    },
   },
+
+  
   education: [
     {
       degree: "Bachelor of Technology (Computer Science)",
       institution: "Vishnu Institute of Technology, Bhimavaram",
       duration: "Expected May 2028",
-      score: "8.87/10.0"
+      score: "8.87/10.0",
     },
     {
       degree: "Intermediate (MPC)",
       institution: "Bhashyam Junior College, Guntur",
       duration: "2022–2024",
-      score: "96.0%"
-    }
+      score: "96.0%",
+    },
   ],
   experience: [
     {
       role: "Full-Stack Web Development Co-Lead",
       organization: "GDG On-Campus Chapter, VIT Bhimavaram",
       duration: "September 2025 – Present",
-      achievements: "Architected gdgvitb.in using Next.js and NeonDB; delivered responsive UI with 95% mobile compatibility serving 1,000+ members."
-    }
+      achievements:
+        "Architected gdgvitb.in using Next.js and NeonDB; delivered responsive UI with 95% mobile compatibility serving 1,000+ members.",
+    },
   ],
   projects: [
     {
+      title: "SUVIDHA",
+      tech: "Microservices, Node.js, React, Docker, Redis, PostgreSQL",
+      description:
+        "A next-gen kiosk platform built on microservices architecture — currently under active development to streamline on-ground service delivery.",
+      status: "Under Development",
+    },
+    {
       title: "VIBE-CHAT",
       tech: "MERN, LangChain, Socket.io, JWT, n8n",
-      description: "Real-time AI-powered chat application with intelligent conversation handling and automated notification workflows."
+      description:
+        "AI-powered real-time chat application with intelligent conversation handling and n8n workflow automation for notifications.",
     },
     {
-      title: "Delicial",
+      title: "DELICIAL",
       tech: "React, Node.js, WebSocket, NodeMailer, JWT",
-      description: "Production-ready restaurant platform with real-time table booking and automated admin analytics dashboards."
+      description:
+        "Production-ready restaurant platform with real-time table booking and automated admin analytics dashboards.",
     },
-    {
-      title: "Graph RAG Medical Chatbot",
-      tech: "Neo4j, LangChain, Mistral (local), Streamlit",
-      description: "Medical AI assistant achieving 90%+ accuracy and sub-2 second response times via knowledge graph integration."
-    }
   ],
   skills: {
     languages: [
@@ -55,7 +62,7 @@ export const portfolioData = {
       { name: "Dart", icon: "devicon-dart-plain" },
       { name: "C", icon: "devicon-c-plain" },
       { name: "JavaScript", icon: "devicon-javascript-plain" },
-      { name: "SQL", icon: "fas fa-database" }
+      { name: "SQL", icon: "fas fa-database" },
     ],
     frameworks: [
       { name: "React.js", icon: "devicon-react-original" },
@@ -64,7 +71,7 @@ export const portfolioData = {
       { name: "Flask", icon: "devicon-flask-original" },
       { name: "Next.js", icon: "devicon-nextjs-original" },
       { name: "Flutter", icon: "devicon-flutter-plain" },
-      { name: "RESTful APIs", icon: "fas fa-network-wired" }
+      { name: "RESTful APIs", icon: "fas fa-network-wired" },
     ],
     tools: [
       { name: "Git", icon: "devicon-git-plain" },
@@ -73,7 +80,7 @@ export const portfolioData = {
       { name: "Google Colab", icon: "fas fa-code" },
       { name: "Postman", icon: "fas fa-rocket" },
       { name: "n8n", icon: "fas fa-project-diagram" },
-      { name: "Android Studio", icon: "devicon-android-plain" }
+      { name: "Android Studio", icon: "devicon-android-plain" },
     ],
     cloudDatabases: [
       { name: "Firebase", icon: "devicon-firebase-plain" },
@@ -81,26 +88,26 @@ export const portfolioData = {
       { name: "MongoDB", icon: "devicon-mongodb-plain" },
       { name: "Pinecone Vector DB", icon: "fas fa-brain" },
       { name: "Firestore", icon: "fas fa-fire" },
-      { name: "MySQL", icon: "devicon-mysql-plain" }
+      { name: "MySQL", icon: "devicon-mysql-plain" },
     ],
     specializations: [
       { name: "Full stack Web Development", icon: "fas fa-laptop-code" },
       { name: "Software Development", icon: "fas fa-terminal" },
       { name: "AI Automations Integrations", icon: "fas fa-robot" },
-      { name: "Database Design", icon: "fas fa-table" }
+      { name: "Database Design", icon: "fas fa-table" },
     ],
     methodologies: [
       { name: "Agile Development", icon: "fas fa-sync" },
       { name: "SDLC", icon: "fas fa-cogs" },
       { name: "API Integration", icon: "fas fa-plug" },
       { name: "Version Control (Git)", icon: "devicon-git-plain" },
-      { name: "DevOps Practices", icon: "fas fa-infinity" }
+      { name: "DevOps Practices", icon: "fas fa-infinity" },
     ],
     softSkills: [
       { name: "Technical Leadership", icon: "fas fa-users" },
       { name: "Cross-functional Collaboration", icon: "fas fa-handshake" },
       { name: "Research Development", icon: "fas fa-microscope" },
-      { name: "Mentoring", icon: "fas fa-chalkboard-teacher" }
-    ]
-  }
+      { name: "Mentoring", icon: "fas fa-chalkboard-teacher" },
+    ],
+  },
 };
