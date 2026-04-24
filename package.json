@@ -9,10 +9,18 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.10",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3",
     "vite": "^6.0.0"
   },
   "dependencies": {
-    "three": "^0.170.0",
-    "gsap": "^3.12.5"
+    "gsap": "^3.12.5",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "three": "^0.170.0"
   }
 }
