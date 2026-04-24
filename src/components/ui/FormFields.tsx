@@ -1,17 +1,11 @@
-import type { InputHTMLAttributes, TextareaHTMLAttributes } from "react";
-import { clsx } from "../../lib/clsx";
 
-type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
-  label: string;
-};
+import { clsx } from "../../utils/clsx";
 
-export function InputField({
-  label,
-  id,
-  className,
-  ...inputProps
-}: InputFieldProps) {
-  const inputId = id ?? `field-${label.toLowerCase().replace(/\s+/g, "-")}`;
+export function Input(
+  props: React.InputHTMLAttributes<HTMLInputElement> & { label: string },
+) {
+  const { label, id, className, ...inputProps } = props;
+  const inputId = id ?? `field-${label.toLowerCase().replace(/\\s+/g, "-")}`;
 
   return (
     <label className="field-group" htmlFor={inputId}>
@@ -25,18 +19,12 @@ export function InputField({
   );
 }
 
-type TextareaFieldProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
-  label: string;
-};
-
-export function TextareaField({
-  label,
-  id,
-  className,
-  ...textareaProps
-}: TextareaFieldProps) {
+export function Textarea(
+  props: React.TextareaHTMLAttributes<HTMLTextAreaElement> & { label: string },
+) {
+  const { label, id, className, ...textareaProps } = props;
   const textareaId =
-    id ?? `field-${label.toLowerCase().replace(/\s+/g, "-")}-textarea`;
+    id ?? `field-${label.toLowerCase().replace(/\\s+/g, "-")}-textarea`;
 
   return (
     <label className="field-group" htmlFor={textareaId}>

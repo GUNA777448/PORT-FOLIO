@@ -1,17 +1,14 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { clsx } from "../../lib/clsx";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
-  variant?: "primary" | "secondary";
-};
+import { clsx } from "../../utils/clsx";
 
 export function Button({
   children,
   variant = "primary",
   className,
   ...props
-}: ButtonProps) {
+}: React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: "primary" | "secondary";
+}) {
   return (
     <button
       className={clsx(

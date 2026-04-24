@@ -1,13 +1,16 @@
-import type { ReactNode } from "react";
 
-type DialogProps = {
+
+export function Dialog({
+  open,
+  title,
+  onClose,
+  children,
+}: {
   open: boolean;
   title: string;
   onClose: () => void;
-  children: ReactNode;
-};
-
-export function Dialog({ open, title, onClose, children }: DialogProps) {
+  children: React.ReactNode;
+}) {
   if (!open) return null;
 
   return (

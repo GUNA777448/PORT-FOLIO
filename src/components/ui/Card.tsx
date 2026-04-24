@@ -1,11 +1,12 @@
-import type { ReactNode } from "react";
-import { clsx } from "../../lib/clsx";
 
-type CardProps = {
-  children: ReactNode;
+import { clsx } from "../../utils/clsx";
+
+export function Card({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
   className?: string;
-};
-
-export function Card({ children, className }: CardProps) {
+}) {
   return <article className={clsx("ui-card", className)}>{children}</article>;
 }
