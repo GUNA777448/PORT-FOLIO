@@ -46,7 +46,7 @@ export const testimonialsData = [
     image:
       "src\\assets\\WhatsApp Image 2026-04-24 at 10.49.45 PM.jpeg",
     quote:
-      "I've been using imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.",
+      "Working with him as my Technical Lead has been a game-changer for our agency. He consistently delivers high-quality, scalable websites while perfectly understanding client needs. I highly recommend him to anyone looking for a reliable and skilled web development expert.",
   },
   {
     name: "K Narasimha Naidu",
