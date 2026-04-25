@@ -139,7 +139,7 @@ export const portfolioContent: PortfolioContent = {
         "A restaurant web application for exploring the menu, showcasing signature dishes, and creating a polished online dining experience.",
       iconClass: "fas fa-utensils",
       status: "Featured",
-      links: [{ label: "View Details", href: "#" }],
+      links: [{ label: "View Details", href: "https://delicial.vercel.app/" }],
     },
     {
       title: "GDGVITB",

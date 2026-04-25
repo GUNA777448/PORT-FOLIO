@@ -38,13 +38,13 @@ export const testimonialsData = [
     image:
       "https://res.cloudinary.com/dlupkibvq/image/upload/Yaswanth_Varada_Organisor_hmclul.png",
     quote:
-      "I've been using imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.",
+      "As an organiser at GDG VITB, I’ve had the opportunity to closely work with Gurunada as he progressed from Web Dev Co-Lead to Lead. Throughout this journey, he consistently demonstrated strong ownership, taking initiatives from ideation all the way to execution with clarity and confidence",
   },
   {
     name: "Chinni Suryan Hota",
     role: "Founder -Hota Creatives",
     image:
-      "src\\assets\\WhatsApp Image 2026-04-24 at 10.49.45 PM.jpeg",
+      "https://res.cloudinary.com/duvr3z2z0/image/upload/v1777115955/Gemini_Generated_Image_mn36wwmn36wwmn36_tsvdzj.png",
     quote:
       "Working with him as my Technical Lead has been a game-changer for our agency. He consistently delivers high-quality, scalable websites while perfectly understanding client needs. I highly recommend him to anyone looking for a reliable and skilled web development expert.",
   },
