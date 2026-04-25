@@ -54,6 +54,6 @@ export const testimonialsData = [
     image:
       "https://res.cloudinary.com/dlupkibvq/image/upload/v1767886987/ngv6uefackvxzjz1rozc.png",
     quote:
-      "I've been using imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.",
+      "As Technical Lead at E-Cell and GDG, I mentored Gurunada on several projects using Flutter, Next.js, Firebase, and Neo4j. He demonstrated strong ownership from ideation to implementation, effectively translating user needs into functional solutions. Proactive and open to feedback, Gurunada is a dedicated developer who excels in real-world environments.",
   },
 ];

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { portfolioContent } from "../data/portfolioContent";
 import { Button } from "../components/ui/Button";
+import heroArt from "../assets/Hero.svg";
 
 export function HeroSection() {
   const [typedSubtitle, setTypedSubtitle] = useState("");
@@ -39,9 +40,9 @@ export function HeroSection() {
   return (
     <section id="hero" className="screen-section reveal-block">
       <div className="content-shell hero-grid w-full">
-        <div>
+        <div className="hero-copy">
           <p className="eyebrow">{portfolioContent.heroTag}</p>
-          <h1>{portfolioContent.name}</h1>
+          <h1 className="hero-name">{portfolioContent.name}</h1>
           <p className="hero-subtitle" aria-label={portfolioContent.subtitle}>
             {typedSubtitle}
             <span className="typing-cursor" aria-hidden="true">
@@ -70,6 +71,10 @@ export function HeroSection() {
               Contact Me
             </Button>
           </div>
+        </div>
+
+        <div className="hero-visual reveal-item" aria-hidden="true">
+          <img src={heroArt} alt="" className="hero-illustration" />
         </div>
       </div>
     </section>

@@ -24,6 +24,30 @@ export default function App() {
     const isNavSection = (id: string): id is (typeof links)[number] =>
       (links as readonly string[]).includes(id as any);
 
+    const updateActiveFromViewport = () => {
+      const viewportAnchor = window.innerHeight * 0.42;
+
+      let bestMatch: (typeof links)[number] = "hero";
+      let bestDistance = Number.POSITIVE_INFINITY;
+
+      links.forEach((id) => {
+        const section = document.getElementById(id);
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+        if (!isInViewport) return;
+
+        const distance = Math.abs(rect.top - viewportAnchor);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestMatch = id;
+        }
+      });
+
+      setActiveSection(bestMatch);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -40,9 +64,19 @@ export default function App() {
       { rootMargin: "-35% 0px -45% 0px", threshold: 0.2 },
     );
 
-    document
-      .querySelectorAll<HTMLElement>(".reveal-block")
-      .forEach((section) => observer.observe(section));
+    links.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    // Scroll fallback keeps nav highlight in sync when observer timings vary.
+    window.addEventListener("scroll", updateActiveFromViewport, {
+      passive: true,
+    });
+    window.addEventListener("resize", updateActiveFromViewport);
+    updateActiveFromViewport();
 
     const onEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -55,6 +89,8 @@ export default function App() {
     return () => {
       observer.disconnect();
       window.removeEventListener("keydown", onEscape);
+      window.removeEventListener("scroll", updateActiveFromViewport);
+      window.removeEventListener("resize", updateActiveFromViewport);
     };
   }, []);
 

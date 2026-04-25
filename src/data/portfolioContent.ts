@@ -6,13 +6,9 @@ export const portfolioContent: PortfolioContent = {
   subtitle: "Overall Product Builder | AI & Full-Stack Specialist",
   summary:
     "Scaling ideas into real-world products with AI and modern full-stack architectures.",
-  aboutParagraphs: [
-    "I am a Computer Science undergraduate at Vishnu Institute of Technology (Expected May 2028). I specialize in full-stack development using MERN, Next.js, and AI automation through n8n and LangChain.",
-    "Beyond code, I currently serve as Technical Lead at HotaCreatives, where I architect scalable products and mentor developers.",
-  ],
   stats: [
     { value: "1000+", label: "Users Impacted" },
-    { value: "150+", label: "LeetCode Problems" },
+    { value: "200+", label: "LeetCode Problems" },
     { value: "99%", label: "Uptime Record" },
     { value: "5+", label: "Shipped Projects" },
   ],
@@ -69,23 +65,6 @@ export const portfolioContent: PortfolioContent = {
       ],
       tags: ["LangChain", "LangGraph", "RAG", "GraphRAG"],
       iconClass: "fas fa-brain",
-    },
-  ],
-  approach: [
-    {
-      number: "01",
-      title: "Understand First",
-      description: "I dig into the problem space before writing a single line.",
-    },
-    {
-      number: "02",
-      title: "Build to Ship",
-      description: "Fast prototypes, feedback loops, and iterative delivery.",
-    },
-    {
-      number: "03",
-      title: "Clean by Default",
-      description: "Readable code and solid architecture from the start.",
     },
   ],
   timeline: [
@@ -152,6 +131,15 @@ export const portfolioContent: PortfolioContent = {
         { label: "Code", href: "#" },
         { label: "Coming Soon", href: "#", disabled: true },
       ],
+    },
+    {
+      title: "Delicial",
+      tech: "Restaurant Web App | React | Responsive UI | Modern Ordering Flow",
+      description:
+        "A restaurant web application for exploring the menu, showcasing signature dishes, and creating a polished online dining experience.",
+      iconClass: "fas fa-utensils",
+      status: "Featured",
+      links: [{ label: "View Details", href: "#" }],
     },
     {
       title: "GDGVITB",
@@ -226,8 +214,8 @@ export const portfolioContent: PortfolioContent = {
     { iconClass: "fas fa-location-dot", value: "Andhra Pradesh, India" },
   ],
   socialLinks: [
-    { iconClass: "fab fa-github", href: "https://github.com" },
-    { iconClass: "fab fa-linkedin", href: "https://linkedin.com" },
-    { iconClass: "fab fa-x-twitter", href: "https://twitter.com" },
+    { iconClass: "fab fa-github", href: "https://github.com/GUNA777448" },
+    { iconClass: "fab fa-linkedin", href: "https://www.linkedin.com/in/gurunada-rao-reddy-27889931a" },
+   
   ],
 };

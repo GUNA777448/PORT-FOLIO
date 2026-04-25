@@ -12,12 +12,6 @@ export type Domain = {
   iconClass: string;
 };
 
-export type ApproachStep = {
-  number: string;
-  title: string;
-  description: string;
-};
-
 export type TimelineMetric = {
   value: string;
   label: string;
@@ -76,10 +70,8 @@ export type PortfolioContent = {
   name: string;
   subtitle: string;
   summary: string;
-  aboutParagraphs: string[];
   stats: Stat[];
   domains: Domain[];
-  approach: ApproachStep[];
   timeline: TimelineItem[];
   academics: AcademicBlock[];
   projects: Project[];
