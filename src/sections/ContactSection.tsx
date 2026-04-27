@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, MapPin, Phone, Send } from "lucide-react";
+import {
+  ArrowUpRight,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  Sparkles,
+} from "lucide-react";
 
 import { portfolioContent } from "../data/portfolioContent";
 
@@ -109,9 +116,15 @@ export function ContactSection() {
     >
       <div className="container max-w-6xl mx-auto px-6">
         <motion.div {...fadeInUp} className="max-w-3xl mb-12 space-y-4">
-          <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-neutral-500">
-            Contact
-          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-neutral-500">
+              Contact
+            </p>
+            <span className="inline-flex items-center gap-1 rounded-full border border-orange-200 bg-orange-50 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] uppercase text-orange-700">
+              <Sparkles size={12} />
+              Open For Collaboration
+            </span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.08]">
             Let&apos;s build something meaningful together.
           </h2>
@@ -139,7 +152,7 @@ export function ContactSection() {
               {contactRows.map((item) => (
                 <div
                   key={item.value}
-                  className="flex items-center justify-between rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3"
+                  className="flex items-center justify-between rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-white"
                 >
                   <div className="flex items-center gap-3 text-sm text-neutral-700">
                     {item.icon}
@@ -148,6 +161,15 @@ export function ContactSection() {
                   <ArrowUpRight size={14} className="text-neutral-400" />
                 </div>
               ))}
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3">
+              <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-emerald-700">
+                Response Time
+              </p>
+              <p className="mt-1 text-sm text-emerald-800">
+                Usually within 24 hours.
+              </p>
             </div>
           </motion.aside>
 
@@ -181,7 +203,7 @@ export function ContactSection() {
                   id="name"
                   name="name"
                   type="text"
-                  className="mt-2 w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-neutral-500"
+                  className="mt-2 w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-neutral-500 focus:bg-white"
                   placeholder="Enter your full name"
                   required
                 />
@@ -198,7 +220,7 @@ export function ContactSection() {
                   id="email-address"
                   name="email"
                   type="email"
-                  className="mt-2 w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-neutral-500"
+                  className="mt-2 w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-neutral-500 focus:bg-white"
                   placeholder="Enter your email address"
                   required
                 />
@@ -214,7 +236,7 @@ export function ContactSection() {
                 id="message"
                 name="message"
                 rows={5}
-                className="md:col-span-2 w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 resize-none outline-none transition focus:border-neutral-500"
+                className="md:col-span-2 w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 resize-none outline-none transition focus:border-neutral-500 focus:bg-white"
                 placeholder="Enter your message"
                 required
               />
@@ -238,6 +260,15 @@ export function ContactSection() {
               {isSending ? "Sending..." : "Send Message"}
               <Send size={15} />
             </button>
+
+            <div className="mt-5 rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3">
+              <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-neutral-500">
+                Collaboration Note
+              </p>
+              <p className="mt-1 text-sm text-neutral-600">
+                Include your goals and preferred timeline for a faster kickoff.
+              </p>
+            </div>
           </motion.form>
         </div>
       </div>

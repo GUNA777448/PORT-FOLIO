@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { portfolioContent } from "../data/portfolioContent";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -29,9 +29,15 @@ export function ExperienceSection() {
     >
       <div className="container max-w-6xl mx-auto px-6">
         <motion.div {...fadeInUp} className="max-w-3xl mb-12 space-y-4">
-          <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-neutral-500">
-            Experience
-          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-neutral-500">
+              Experience
+            </p>
+            <span className="inline-flex items-center gap-1 rounded-full border border-lime-200 bg-lime-50 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] uppercase text-lime-700">
+              <Sparkles size={12} />
+              Delivery Timeline
+            </span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.08]">
             Milestones shaped by delivery, ownership, and continuous learning.
           </h2>
@@ -59,11 +65,16 @@ export function ExperienceSection() {
                 <motion.article
                   key={`${exp.title}-${exp.organization}`}
                   variants={fadeInUp}
-                  className="rounded-3xl border border-neutral-200 bg-white px-6 py-6"
+                  className="group rounded-3xl border border-neutral-200 bg-white px-6 py-6 transition hover:-translate-y-0.5 hover:shadow-sm"
                 >
-                  <p className="text-[11px] tracking-[0.12em] uppercase text-neutral-500">
-                    {exp.date}
-                  </p>
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="text-[11px] tracking-[0.12em] uppercase text-neutral-500">
+                      {exp.date}
+                    </p>
+                    <span className="rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-[10px] font-medium tracking-[0.08em] uppercase text-neutral-600">
+                      {exp.tags?.[0] ?? "Impact"}
+                    </span>
+                  </div>
                   <h4 className="mt-2 text-xl font-semibold text-neutral-900">
                     {exp.title}
                   </h4>
@@ -89,6 +100,18 @@ export function ExperienceSection() {
                             {metric.label}
                           </p>
                         </div>
+                      ))}
+                    </div>
+                  ) : null}
+                  {exp.tags?.length ? (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {exp.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={`${exp.title}-${tag}`}
+                          className="rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-[10px] font-medium tracking-[0.08em] uppercase text-neutral-600"
+                        >
+                          {tag}
+                        </span>
                       ))}
                     </div>
                   ) : null}
@@ -126,9 +149,14 @@ export function ExperienceSection() {
                   <p className="mt-1 text-sm text-neutral-600">
                     {academic.institution}
                   </p>
-                  <p className="mt-4 inline-flex rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-700">
-                    {academic.score} {academic.scoreLabel}
-                  </p>
+                  <div className="mt-4 flex items-center gap-2">
+                    <p className="inline-flex rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-700">
+                      {academic.score} {academic.scoreLabel}
+                    </p>
+                    <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[10px] font-semibold tracking-[0.1em] uppercase text-emerald-700">
+                      Certified
+                    </span>
+                  </div>
                 </motion.article>
               ))}
             </motion.div>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://guna777448.github.io/PORT-FOLIO/sitemap.xml

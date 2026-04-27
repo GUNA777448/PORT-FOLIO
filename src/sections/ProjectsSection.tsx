@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import { portfolioContent } from "../data/portfolioContent";
 import type { Project } from "../types/portfolio";
 
@@ -33,9 +33,15 @@ export function ProjectsSection({
     >
       <div className="container max-w-6xl mx-auto px-6">
         <motion.div {...fadeInUp} className="max-w-3xl mb-12 space-y-4">
-          <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-neutral-500">
-            Projects
-          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-neutral-500">
+              Projects
+            </p>
+            <span className="inline-flex items-center gap-1 rounded-full border border-rose-200 bg-rose-50 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] uppercase text-rose-700">
+              <Sparkles size={12} />
+              Selected Work
+            </span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.08]">
             Selected work with a focus on clarity, performance, and impact.
           </h2>
@@ -59,7 +65,7 @@ export function ProjectsSection({
               <motion.article
                 key={project.title}
                 variants={fadeInUp}
-                className="rounded-3xl border border-neutral-200 bg-white px-6 py-6"
+                className="group rounded-3xl border border-neutral-200 bg-white px-6 py-6 transition hover:-translate-y-0.5 hover:shadow-sm"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-neutral-900">
@@ -78,11 +84,13 @@ export function ProjectsSection({
                 <p className="mt-3 text-[11px] tracking-[0.12em] uppercase text-neutral-500">
                   {project.tech}
                 </p>
-
+                <div className="mt-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold tracking-[0.1em] uppercase text-emerald-700">
+                  Case Study Ready
+                </div>
                 <div className="mt-5 flex items-center gap-3 border-t border-neutral-200 pt-4">
                   <button
                     onClick={() => onSelectProject(project)}
-                    className="rounded-full bg-neutral-900 px-4 py-2 text-xs font-medium text-white hover:bg-black transition-colors"
+                    className="rounded-full bg-neutral-900 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-black"
                   >
                     View Details
                   </button>
@@ -92,7 +100,7 @@ export function ProjectsSection({
                       href={primaryLink.href}
                       target={primaryLink.external ? "_blank" : "_self"}
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 rounded-full border border-neutral-200 px-4 py-2 text-xs font-medium text-neutral-700 hover:border-neutral-300"
+                      className="inline-flex items-center gap-1 rounded-full border border-neutral-200 px-4 py-2 text-xs font-medium text-neutral-700 transition hover:border-neutral-300"
                     >
                       {primaryLink.label}
                       <ArrowUpRight size={14} />

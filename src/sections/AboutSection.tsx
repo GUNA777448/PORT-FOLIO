@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { portfolioContent } from "../data/portfolioContent";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -31,9 +31,15 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20">
           <div className="lg:col-span-7 space-y-10">
             <motion.div {...fadeInUp} className="space-y-5">
-              <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-neutral-500">
-                About
-              </p>
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-neutral-500">
+                  About
+                </p>
+                <span className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] uppercase text-amber-700">
+                  <Sparkles size={12} />
+                  Product-minded Engineer
+                </span>
+              </div>
               <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.08]">
                 Building products that feel simple, fast, and inevitable.
               </h2>
@@ -62,14 +68,21 @@ export function AboutSection() {
                 <motion.div
                   key={stat.label}
                   variants={fadeInUp}
-                  className="rounded-2xl border border-neutral-200 bg-white px-6 py-5"
+                  className="group rounded-2xl border border-neutral-200 bg-white px-6 py-5 transition hover:-translate-y-0.5 hover:shadow-sm"
                 >
-                  <p className="text-3xl md:text-4xl font-semibold text-neutral-900">
-                    {stat.value}
-                  </p>
-                  <p className="mt-1 text-[11px] tracking-[0.14em] uppercase text-neutral-500">
-                    {stat.label}
-                  </p>
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="text-3xl md:text-4xl font-semibold text-neutral-900">
+                        {stat.value}
+                      </p>
+                      <p className="mt-1 text-[11px] tracking-[0.14em] uppercase text-neutral-500">
+                        {stat.label}
+                      </p>
+                    </div>
+                    <span className="rounded-full border border-neutral-200 bg-neutral-50 px-2 py-1 text-[10px] font-semibold tracking-[0.08em] uppercase text-neutral-500 transition group-hover:text-neutral-700">
+                      verified
+                    </span>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -86,6 +99,10 @@ export function AboutSection() {
                 </h3>
                 <ArrowUpRight size={18} className="text-neutral-400" />
               </div>
+              <p className="pt-4 text-sm text-neutral-600 leading-relaxed">
+                I bridge product strategy and engineering execution to ship
+                measurable outcomes.
+              </p>
 
               <motion.div
                 variants={staggerContainer}
@@ -106,9 +123,16 @@ export function AboutSection() {
                     <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
                       {domain.summary}
                     </p>
-                    <p className="mt-3 text-[11px] tracking-[0.12em] uppercase text-neutral-500">
-                      {domain.tags.slice(0, 3).join(" • ")}
-                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {domain.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={`${domain.id}-${tag}`}
+                          className="rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-[10px] font-medium tracking-[0.08em] uppercase text-neutral-600"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </motion.article>
                 ))}
               </motion.div>
