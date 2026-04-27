@@ -247,6 +247,18 @@ main > .screen-section:nth-of-type(even) {
   animation: fadeLift 0.6s ease both;
 }
 
+.section-surface {
+  transition: background-color 0.35s ease;
+}
+
+.section-surface-a {
+  background-color: #f5f8fc;
+}
+
+.section-surface-b {
+  background-color: #fcf7f2;
+}
+
 @keyframes fadeLift {
   from {
     opacity: 0;
