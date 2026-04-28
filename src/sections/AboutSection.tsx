@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { portfolioContent } from "../data/portfolioContent";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -35,10 +35,6 @@ export function AboutSection() {
                 <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-neutral-500">
                   About
                 </p>
-                <span className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] uppercase text-amber-700">
-                  <Sparkles size={12} />
-                  Product-minded Engineer
-                </span>
               </div>
               <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.08]">
                 Building products that feel simple, fast, and inevitable.
@@ -70,18 +66,13 @@ export function AboutSection() {
                   variants={fadeInUp}
                   className="group rounded-2xl border border-neutral-200 bg-white px-6 py-5 transition hover:-translate-y-0.5 hover:shadow-sm"
                 >
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <p className="text-3xl md:text-4xl font-semibold text-neutral-900">
-                        {stat.value}
-                      </p>
-                      <p className="mt-1 text-[11px] tracking-[0.14em] uppercase text-neutral-500">
-                        {stat.label}
-                      </p>
-                    </div>
-                    <span className="rounded-full border border-neutral-200 bg-neutral-50 px-2 py-1 text-[10px] font-semibold tracking-[0.08em] uppercase text-neutral-500 transition group-hover:text-neutral-700">
-                      verified
-                    </span>
+                  <div>
+                    <p className="text-3xl md:text-4xl font-semibold text-neutral-900">
+                      {stat.value}
+                    </p>
+                    <p className="mt-1 text-[11px] tracking-[0.14em] uppercase text-neutral-500">
+                      {stat.label}
+                    </p>
                   </div>
                 </motion.div>
               ))}

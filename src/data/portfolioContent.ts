@@ -1,7 +1,7 @@
 import { PortfolioContent } from "../types/portfolio";
 
 export const portfolioContent: PortfolioContent = {
-  heroTag: "Technical Lead @ HotaCreatives",
+  heroTag: "WEB DEV LEAD @ GDG VITB",
   name: "Gurunada Rao Reddy",
   subtitle: "Overall Product Builder | AI & Full-Stack Specialist",
   summary:
@@ -215,7 +215,9 @@ export const portfolioContent: PortfolioContent = {
   ],
   socialLinks: [
     { iconClass: "fab fa-github", href: "https://github.com/GUNA777448" },
-    { iconClass: "fab fa-linkedin", href: "https://www.linkedin.com/in/gurunada-rao-reddy-27889931a" },
-   
+    {
+      iconClass: "fab fa-linkedin",
+      href: "https://www.linkedin.com/in/gurunada-rao-reddy-27889931a",
+    },
   ],
 };

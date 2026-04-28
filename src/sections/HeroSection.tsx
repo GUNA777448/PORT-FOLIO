@@ -1,14 +1,28 @@
 import { useEffect, useState } from "react";
 import { portfolioContent } from "../data/portfolioContent";
 import { Button } from "../components/ui/Button";
-import heroArt from "../assets/Hero.svg";
+const heroArt = new URL("../assets/Hero.svg", import.meta.url).href;
+
+const typingTitles = [
+  "Full-Stack Developer (MERN)",
+  "AI Product Developer",
+  "GenAI Engineer (LangChain, RAG)",
+  "Flutter App Developer",
+  "Building AI-Powered Apps",
+  "SaaS Product Builder",
+  "Frontend Developer (React + Tailwind)",
+  "Backend Developer (Node.js APIs)",
+  "Cross-Platform Mobile Developer",
+  "LLM Application Developer",
+];
 
 export function HeroSection() {
   const [typedSubtitle, setTypedSubtitle] = useState("");
   const [isDeletingSubtitle, setIsDeletingSubtitle] = useState(false);
+  const [subtitleIndex, setSubtitleIndex] = useState(0);
 
   useEffect(() => {
-    const fullText = portfolioContent.subtitle;
+    const fullText = typingTitles[subtitleIndex];
     let timeoutId: number;
 
     if (!isDeletingSubtitle && typedSubtitle === fullText) {
@@ -18,6 +32,9 @@ export function HeroSection() {
     } else if (isDeletingSubtitle && typedSubtitle.length === 0) {
       timeoutId = window.setTimeout(() => {
         setIsDeletingSubtitle(false);
+        setSubtitleIndex(
+          (currentIndex) => (currentIndex + 1) % typingTitles.length,
+        );
       }, 350);
     } else {
       timeoutId = window.setTimeout(
@@ -35,7 +52,7 @@ export function HeroSection() {
     return () => {
       window.clearTimeout(timeoutId);
     };
-  }, [typedSubtitle, isDeletingSubtitle]);
+  }, [typedSubtitle, isDeletingSubtitle, subtitleIndex]);
 
   return (
     <section id="hero" className="screen-section reveal-block">
@@ -43,7 +60,7 @@ export function HeroSection() {
         <div className="hero-copy">
           <p className="eyebrow">{portfolioContent.heroTag}</p>
           <h1 className="hero-name">{portfolioContent.name}</h1>
-          <p className="hero-subtitle" aria-label={portfolioContent.subtitle}>
+          <p className="hero-subtitle" aria-label={typingTitles.join(", ")}>
             {typedSubtitle}
             <span className="typing-cursor" aria-hidden="true">
               |

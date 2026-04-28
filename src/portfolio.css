@@ -252,11 +252,86 @@ main > .screen-section:nth-of-type(even) {
 }
 
 .section-surface-a {
-  background-color: #f5f8fc;
+  /* Light theme */
+  background-color: #f8fafb;
+  color: #1a1a1a;
 }
 
 .section-surface-b {
-  background-color: #fcf7f2;
+  /* Dark theme */
+  background-color: #1a1f2e;
+  color: #f0f0f0;
+}
+
+/* Dark theme text color overrides */
+.section-surface-b h1,
+.section-surface-b h2,
+.section-surface-b h3,
+.section-surface-b h4,
+.section-surface-b h5,
+.section-surface-b h6 {
+  color: #ffffff !important;
+}
+
+.section-surface-b p,
+.section-surface-b span:not([class*="badge"]):not([class*="tag"]),
+.section-surface-b li,
+.section-surface-b a {
+  color: #e0e0e0 !important;
+}
+
+/* Neutral color overrides for dark theme */
+.section-surface-b .text-neutral-500,
+.section-surface-b .text-neutral-600 {
+  color: #b8b8b8 !important;
+}
+
+.section-surface-b .text-neutral-900 {
+  color: #f5f5f5 !important;
+}
+
+.section-surface-b .text-neutral-400 {
+  color: #9a9a9a !important;
+}
+
+.section-surface-b .text-neutral-700 {
+  color: #e8e8e8 !important;
+}
+
+.section-surface-b .text-neutral-200,
+.section-surface-b .text-neutral-100 {
+  color: #d0d0d0 !important;
+}
+
+/* Dark theme badges and UI elements */
+.section-surface-b .bg-neutral-50,
+.section-surface-b .bg-white {
+  background-color: #2a3142 !important;
+  color: #f0f0f0 !important;
+}
+
+.section-surface-b .border-neutral-200 {
+  border-color: #3a4258 !important;
+}
+
+.section-surface-b .border-neutral-200:hover {
+  border-color: #4a5268 !important;
+}
+
+.section-surface-b .bg-neutral-50 .text-neutral-600,
+.section-surface-b .bg-white .text-neutral-600,
+.section-surface-b .bg-neutral-50 .text-neutral-500,
+.section-surface-b .bg-white .text-neutral-500 {
+  color: #f0f0f0 !important;
+}
+
+.section-surface-b .group:hover .text-neutral-700 {
+  color: #ffffff !important;
+}
+
+/* Icon colors in dark theme */
+.section-surface-b svg {
+  color: #b8b8b8;
 }
 
 @keyframes fadeLift {
@@ -1503,6 +1578,7 @@ main > .screen-section:nth-of-type(even) {
   .hero-visual {
     order: 2;
     justify-content: flex-start;
+    min-height: 0;
   }
 
   .hero-copy {
@@ -1547,11 +1623,11 @@ main > .screen-section:nth-of-type(even) {
   }
 
   #hero.screen-section {
-    padding-top: 1.25rem;
+    padding-top: clamp(2.5rem, 8vw, 4rem);
   }
 
   #hero.screen-section > .content-shell {
-    min-height: calc(100vh - 1.25rem);
+    min-height: calc(100vh - clamp(2.5rem, 8vw, 4rem));
     align-items: center;
   }
 
@@ -1567,6 +1643,10 @@ main > .screen-section:nth-of-type(even) {
 @media (max-width: 780px) {
   :root {
     --rail-safe-space: 0rem;
+  }
+
+  #hero.screen-section {
+    min-height: auto;
   }
 
   .side-rail {
@@ -1630,8 +1710,13 @@ main > .screen-section:nth-of-type(even) {
   }
 
   .hero-visual {
+    order: 1;
     justify-content: flex-start;
     margin-top: 0.15rem;
+  }
+
+  .hero-copy {
+    order: 2;
   }
 
   .hero-illustration {
@@ -1654,6 +1739,14 @@ main > .screen-section:nth-of-type(even) {
 
   .about-stat-tile {
     border-right: none;
+  }
+
+  .about-stat-tile > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
   .about-stat-tile:nth-last-child(-n + 2) {

@@ -35,17 +35,13 @@ const fadeInUp = {
 
 async function submitContactMessage(payload: ContactPayload) {
   try {
-    const response = await fetch(appsScriptUrl, {
+    await fetch(appsScriptUrl, {
       method: "POST",
       headers: {
-        "Content-Type": "text/plain;charset=utf-8",
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
       },
-      body: JSON.stringify(payload),
+      body: new URLSearchParams(payload).toString(),
     });
-
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
   } catch {
     await fetch(appsScriptUrl, {
       method: "POST",
