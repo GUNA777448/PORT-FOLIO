@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { portfolioContent } from "../data/portfolioContent";
 import { ArrowUpRight, Sparkles } from "lucide-react";
+import { AnimatedTextGenerate } from "../components/ui/animated-textgenerate";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -24,6 +25,8 @@ export function SkillsSection() {
     (sum, [, skills]) => sum + skills.length,
     0,
   );
+  const introText =
+    "Pressure changes everything. Some people fold, but the right stack keeps you focused, fast, and steady when the deadline gets real.";
 
   return (
     <section
@@ -41,9 +44,22 @@ export function SkillsSection() {
               {totalSkills} Capabilities
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.08]">
-            Tools selected for reliability, speed, and product quality.
-          </h2>
+          <AnimatedTextGenerate
+            className="max-w-3xl"
+            textClassName="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.12]"
+            text={introText}
+            blurEffect
+            speed={1}
+            highlightWords={["Pressure", "focused", "fast", "deadline"]}
+            highlightClassName="text-sky-700 dark:text-sky-400 font-bold"
+            linkWords={["focused", "deadline", "stack"]}
+            linkHrefs={["#projects", "#contact", "#about"]}
+            linkClassNames={[
+              "decoration-sky-500 hover:decoration-sky-400",
+              "decoration-rose-500 hover:decoration-rose-400",
+              "decoration-violet-500 hover:decoration-violet-400",
+            ]}
+          />
           <p className="text-base text-neutral-600 leading-relaxed">
             A compact stack that helps me ship fast, keep systems maintainable,
             and scale with confidence.
